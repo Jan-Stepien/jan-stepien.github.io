@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>G.O.A.T Run: a free endless runner with a very fast goat</title>
+<meta name="description" content="Dash, jump and roll as the farm's fastest goat. Collect tin cans, grab power-ups and chase your best score. Free on Android, iPhone coming soon.">
+<meta property="og:title" content="G.O.A.T Run: a free endless runner with a very fast goat">
+<meta property="og:description" content="Dash, jump and roll through the farm, a small town, a busy city and out to Mars. Free to play.">
+<meta property="og:image" content="https://jan-stepien.github.io/goatrun/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/icon.png">
+<style>
+  :root { --ink:#1f2a5c; --violet:#7a3be2; --green:#7acb4b; --sky:#78c8ff; --cream:#fffaf0; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:17px/1.55 -apple-system, "SF Pro Rounded", system-ui, "Segoe UI", sans-serif; color:var(--ink); background:linear-gradient(#78c8ff 0, #bfe9ff 340px, #f3fbe9 640px); }
+  .wrap { max-width:960px; margin:0 auto; padding:0 20px; }
+  header { text-align:center; padding:48px 0 12px; }
+  .icon { width:128px; height:128px; border-radius:30px; box-shadow:0 10px 30px rgba(31,42,92,.3); }
+  h1 { font-size:clamp(38px,8vw,64px); margin:18px 0 6px; letter-spacing:.5px; color:#fff; text-shadow:0 4px 0 var(--ink), 0 0 2px var(--ink), 3px 0 0 var(--ink), -3px 0 0 var(--ink); }
+  .tag { font-size:22px; font-weight:700; margin:0 0 24px; }
+  .stores { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin:10px 0 34px; }
+  .btn { display:inline-block; padding:16px 28px; border-radius:60px; background:var(--violet); color:#fff; text-decoration:none; font-weight:800; font-size:20px; border:4px solid #fff; box-shadow:0 8px 20px rgba(122,59,226,.35); }
+  .btn.soon { background:#9aa3c7; box-shadow:none; cursor:default; }
+  .shots { display:flex; gap:16px; overflow-x:auto; padding:6px 4px 26px; scroll-snap-type:x mandatory; }
+  .shots img { height:520px; border-radius:26px; box-shadow:0 10px 26px rgba(31,42,92,.28); scroll-snap-align:center; background:#fff; }
+  section { background:var(--cream); border-radius:28px; padding:26px 28px; margin:10px 0 28px; box-shadow:0 6px 18px rgba(31,42,92,.12); }
+  h2 { margin:0 0 10px; font-size:26px; }
+  ul { padding-left:22px; margin:8px 0; }
+  li { margin:6px 0; }
+  footer { text-align:center; padding:10px 0 50px; font-size:15px; }
+  a { color:inherit; }
+  @media (max-width:560px) { .shots img { height:420px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="icon" src="img/icon.png" alt="G.O.A.T Run app icon">
+    <h1>G.O.A.T Run</h1>
+    <p class="tag">The farm's fastest goat is on the loose.</p>
+    <div class="stores">
+      <a class="btn" id="play" href="go.html?c=landing&amp;to=android">Get it on Google Play</a>
+      <span class="btn soon" id="ios">iPhone: coming soon</span>
+    </div>
+  </header>
+
+  <div class="shots" aria-label="Screenshots">
+    <img src="img/run.jpg" alt="The goat flying on a rocket carrot" loading="lazy">
+    <img src="img/home.jpg" alt="The goat grazing on the farm" loading="lazy">
+    <img src="img/runend.jpg" alt="Run-end screen with score and tin cans" loading="lazy">
+    <img src="img/boosts.jpg" alt="Boosts shop" loading="lazy">
+  </div>
+
+  <section>
+    <h2>One thumb. One goat. Zero chill.</h2>
+    <p>Swipe to change lanes, jump over fences and hay bales, roll under gates, climb ramps and dodge tractors. Grab shiny tin cans, collect power-ups and see how far one very determined goat can go.</p>
+    <ul>
+      <li>Simple one-thumb controls, easy to learn and hard to put down</li>
+      <li>A bright world that keeps changing: farm, small town, city, rocket floor, Mars and a UFO ship</li>
+      <li>Magnet, Double Score, Headstart rocket and more power-ups, with upgrades</li>
+      <li>Daily and weekly quests, achievements and a daily reward</li>
+      <li>Free to play, with optional ads and optional purchases</li>
+    </ul>
+  </section>
+
+  <footer>
+    <a href="../support_goatrun.html">Support</a> &middot; <a href="../privacy_policy_goatrun.html">Privacy policy</a> &middot; Legit software solutions
+  </footer>
+</div>
+<script>
+  // When iPhone is live, set the App Store link and flip IOS_LIVE in go.html too.
+  var IOS_URL = null;
+  if (IOS_URL) { var i = document.getElementById('ios'); i.className = 'btn'; i.textContent = 'Download on the App Store'; i.outerHTML = '<a class="btn" href="go.html?c=landing&amp;to=ios">Download on the App Store</a>'; }
+</script>
+</body>
+</html>
