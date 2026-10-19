@@ -14,7 +14,7 @@
 </head>
 <body>
 <h1>Goat Run privacy policy</h1>
-<p><i>Last updated: 19 October 2026</i></p>
+<p><i>Last updated: 20 October 2026</i></p>
 
 <p>Goat Run is a game by Jan Stepien (Legit software solutions). This page explains what the game does with information. The short version: there is no account, we do not collect your name or email, and the game does not track you across other companies' apps unless you allow it.</p>
 
@@ -31,6 +31,8 @@
 
 <h2>Usage statistics (Google Analytics for Firebase)</h2>
   <p>To find out which parts of the game work and which do not, the game sends anonymous usage events to Google Analytics for Firebase: for example that a run started or ended with a score, that an ad was shown, that a reward was collected, or that a purchase went through. Google also receives a random app instance ID, basic device information (model, operating system, language) and approximate location from the IP address. The events are not linked to your name, email or any account, and the game does not use your advertising identifier for them. In the European Economic Area, the United Kingdom and some other regions this starts only after you accept in the consent form shown at start-up. See <a href="https://policies.google.com/technologies/partner-sites">how Google uses data</a>.</p>
+  <h2>The leaderboard (Google Firebase)</h2>
+  <p>When you finish a run with a new personal best, the game posts it to a shared leaderboard so every player can see the top 100. What is posted: your score, a goat name the game made up for you (like "Brave Goat 4821"; you never choose or type one), and a random anonymous ID that the game created on your device. To post, the game signs you in anonymously with Google Firebase Authentication; there is no account, no email and nothing that identifies you. Other players see only the goat name and the score. The leaderboard is stored in Google Cloud Firestore. Deleting the app removes the ID from your device, and the old entry then simply stays on the board until others push it off.</p>
   <h2>Purchases (Apple and RevenueCat)</h2>
 <p>Purchases are made through the App Store; Apple handles your payment and we never see your payment details. To confirm purchases and give you what you bought, the game uses RevenueCat, which receives a random anonymous app user ID, your purchase history for this app and basic device information. See <a href="https://www.revenuecat.com/privacy">RevenueCat's privacy policy</a>.</p>
 
