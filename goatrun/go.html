@@ -15,7 +15,7 @@
 // Android goes to Google Play (with the channel as the install referrer, so Play Console
 // shows installs per channel), iPhone to the App Store once it is live, anyone else to the page.
 var ANDROID = 'com.goatrun.goat_run';
-var IOS_ID = null;          // set to '6819062132' when the App Store version is live
+var IOS_ID = '6819062132';          // set to '6819062132' when the App Store version is live
 var params = new URLSearchParams(location.search);
 var channel = (params.get('c') || 'direct').replace(/[^a-z0-9_-]/gi, '');
 var campaign = (params.get('camp') || 'launch').replace(/[^a-z0-9_-]/gi, '');
