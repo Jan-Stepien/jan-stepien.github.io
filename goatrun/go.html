@@ -25,7 +25,7 @@ if (/android/i.test(ua) || params.get('to') === 'android') {
   var ref = encodeURIComponent('utm_source=' + channel + '&utm_medium=social&utm_campaign=' + campaign);
   target = 'https://play.google.com/store/apps/details?id=' + ANDROID + '&referrer=' + ref;
 } else if ((/iPhone|iPad|iPod/i.test(ua) || params.get('to') === 'ios') && IOS_ID) {
-  target = 'https://apps.apple.com/app/id' + IOS_ID + '?ct=' + channel + '&pt=0&mt=8';
+  target = 'https://apps.apple.com/app/id' + IOS_ID + '?ct=' + channel + '&pt=125586457&mt=8';
 }
 document.getElementById('manual').href = target;
 location.replace(target);
