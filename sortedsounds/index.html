@@ -3,24 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sorted Sounds</title>
+<title>Sorted Sounds: a cozy record-store sorting game</title>
+<meta name="description" content="Your first night as a record-store intern. Pick up, throw and shelve 3,000 albums in a cozy first-person 3D store. No ads, no timers. Free to try, one small unlock.">
+<meta property="og:title" content="Sorted Sounds: a cozy record-store sorting game">
+<meta property="og:description" content="3,000 albums, 300 shelves, one night. Throw, grab and shelve them, oldest on the left.">
+<meta property="og:image" content="https://snoutgames.com/sortedsounds/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://snoutgames.com/sortedsounds/">
+<link rel="icon" href="img/icon.png">
 <style>
-  :root { color-scheme: light dark; --ink:#1a1530; --bg:#fff4dc; --accent:#c4621a; }
-  @media (prefers-color-scheme: dark) { :root { --ink:#f4ead2; --bg:#14101f; --accent:#ffc857; } }
-  body { margin:0 auto; max-width:700px; padding:32px 20px 60px; font:17px/1.55 -apple-system, system-ui, "Segoe UI", sans-serif; color:var(--ink); background:var(--bg); }
-  h1 { font-size:34px; } h2 { margin-top:30px; font-size:21px; }
-  a { color:var(--accent); } li { margin:6px 0; }
+  :root { --ink:#f4ead2; --bg:#14101f; --card:#1f1933; --gold:#ffc857; --line:rgba(255,200,87,.25); }
+  * { box-sizing:border-box; }
+  body { margin:0; font:17px/1.55 -apple-system, "SF Pro Rounded", system-ui, "Segoe UI", sans-serif; color:var(--ink); background:radial-gradient(1200px 600px at 50% -10%, #3a2a5e 0, var(--bg) 60%); min-height:100vh; }
+  .wrap { max-width:960px; margin:0 auto; padding:0 20px; }
+  header { text-align:center; padding:54px 0 12px; }
+  .icon { width:128px; height:128px; border-radius:30px; box-shadow:0 12px 34px rgba(0,0,0,.5); }
+  h1 { font-size:clamp(40px,8vw,68px); margin:18px 0 6px; letter-spacing:.5px; color:var(--gold); }
+  .tag { font-size:22px; font-weight:700; margin:0 0 26px; }
+  .stores { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin:10px 0 36px; }
+  .store { display:inline-flex; align-items:center; gap:12px; padding:10px 24px 10px 18px; border-radius:16px; background:#000; color:#fff; text-decoration:none; border:1px solid #333; }
+  .store svg { width:34px; height:34px; flex:none; }
+  .store span { display:flex; flex-direction:column; line-height:1.1; font-size:23px; font-weight:700; }
+  .store small { font-size:12px; font-weight:500; letter-spacing:.3px; }
+  .shots { display:flex; gap:16px; overflow-x:auto; padding:6px 4px 26px; scroll-snap-type:x mandatory; }
+  .shots img { height:520px; border-radius:26px; box-shadow:0 12px 30px rgba(0,0,0,.5); scroll-snap-align:center; background:#000; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:28px; padding:26px 28px; margin:10px 0 28px; }
+  h2 { margin:0 0 10px; font-size:26px; color:var(--gold); }
+  ul { padding-left:22px; margin:8px 0; }
+  li { margin:6px 0; }
+  footer { text-align:center; padding:10px 0 50px; font-size:15px; opacity:.85; }
+  a { color:var(--gold); }
+  @media (max-width:560px) { .shots img { height:420px; } }
 </style>
 </head>
 <body>
-<h1>Sorted Sounds</h1>
-<p><b>INTERN WANTED. Apply within.</b></p>
-<p>Your first night in a cozy record store: pick up the albums scattered everywhere and shelve them, oldest on the left. 3,000 albums, 300 shelves, 60 genres, three floors. No ads, no timers, one small one-time purchase.</p>
-<ul>
-<li>Throw, grab and sort in first person, with real physics.</li>
-<li>Earn tokens for every finished shelf and spend them on upgrades.</li>
-<li>A cozy night-time store, relaxing music, and one very relaxed manager.</li>
-</ul>
-<p><a href="../support_sortedsounds.html">Support</a> &middot; <a href="../privacy_policy_sortedsounds.html">Privacy policy</a></p>
+<div class="wrap">
+  <header>
+    <img class="icon" src="img/icon.png" alt="Sorted Sounds app icon">
+    <h1>Sorted Sounds</h1>
+    <p class="tag">INTERN WANTED. Apply within.</p>
+    <div class="stores">
+      <a class="store" href="go.html?c=landing&amp;to=ios" aria-label="Download on the App Store">
+        <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+        <span><small>Download on the</small>App Store</span>
+      </a>
+      <a class="store" href="go.html?c=landing&amp;to=android" aria-label="Get it on Google Play">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon fill="#00d7fe" points="4,2.5 4,21.5 12.5,12"/><polygon fill="#00f076" points="4,2.5 12.5,12 17.5,10.04"/><polygon fill="#ff3a44" points="4,21.5 12.5,12 17.5,13.96"/><polygon fill="#ffd500" points="12.5,12 17.5,10.04 21,12 17.5,13.96"/></svg>
+        <span><small>Get it on</small>Google Play</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="shots" aria-label="Screenshots">
+    <img src="img/s1.jpg" alt="Dave, your manager, welcomes you to the store" loading="lazy">
+    <img src="img/s2.jpg" alt="3,000 albums on the floor of a cozy record store" loading="lazy">
+    <img src="img/s3.jpg" alt="Sharpen Sense highlights the album you need" loading="lazy">
+    <img src="img/s4.jpg" alt="Three floors of vinyl to put in order" loading="lazy">
+    <img src="img/s5.jpg" alt="Earn tokens and unlock upgrades" loading="lazy">
+  </div>
+
+  <section>
+    <h2>One night. 3,000 albums.</h2>
+    <p>Your first night in a cozy record store: pick up the albums scattered everywhere and shelve them, oldest on the left. 300 shelves, 60 genres, three floors and one very relaxed manager called Dave.</p>
+    <ul>
+      <li>Throw, grab and sort in first person, with real physics</li>
+      <li>Finish a shelf and it goes gold; finish a bookcase and its genre sign does too</li>
+      <li>Earn a token for every finished shelf and spend it on upgrades like Sharpen Sense</li>
+      <li>A cozy night-time store, relaxing music and a train that rattles the shelves</li>
+      <li>No ads and no timers. Try it free; one small one-time purchase unlocks the whole store</li>
+    </ul>
+  </section>
+
+  <footer>
+    <a href="../">Snout Games</a> &middot; <a href="../support_sortedsounds.html">Support</a> &middot; <a href="../privacy_policy_sortedsounds.html">Privacy policy</a> &middot; Legit software solutions
+  </footer>
+</div>
 </body>
 </html>

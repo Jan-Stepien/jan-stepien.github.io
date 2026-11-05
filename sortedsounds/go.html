@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sorted Sounds</title>
+<style>body{font:18px -apple-system,system-ui,sans-serif;background:#14101f;color:#f4ead2;text-align:center;padding:60px 20px}a{color:#ffc857;font-weight:700}</style>
+</head>
+<body>
+<p>Taking you to Sorted Sounds&hellip;</p>
+<p><a id="manual" href="index.html">Tap here if nothing happens</a></p>
+<script>
+// A smart link for campaigns:  go.html?c=youtube   (c = which channel sent the visitor)
+// Android goes to Google Play (the channel travels as the install referrer), iPhone to the App Store,
+// anyone else to the game's page. Set ANDROID_LIVE to true once the Play version is published.
+var ANDROID = 'com.legitsoftware.sorted_sounds';
+var ANDROID_LIVE = false;
+var IOS_ID = '6823306184';
+var params = new URLSearchParams(location.search);
+var channel = (params.get('c') || 'direct').replace(/[^a-z0-9_-]/gi, '');
+var campaign = (params.get('camp') || 'launch').replace(/[^a-z0-9_-]/gi, '');
+var ua = navigator.userAgent || '';
+var target = 'index.html?utm_source=' + channel;
+if ((/android/i.test(ua) || params.get('to') === 'android') && ANDROID_LIVE) {
+  var ref = encodeURIComponent('utm_source=' + channel + '&utm_medium=social&utm_campaign=' + campaign);
+  target = 'https://play.google.com/store/apps/details?id=' + ANDROID + '&referrer=' + ref;
+} else if ((/iPhone|iPad|iPod/i.test(ua) || params.get('to') === 'ios') && IOS_ID) {
+  target = 'https://apps.apple.com/app/id' + IOS_ID + '?ct=' + channel + '&mt=8';
+}
+document.getElementById('manual').href = target;
+location.replace(target);
+</script>
+</body>
+</html>
